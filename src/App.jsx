@@ -1,6 +1,6 @@
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 import './App.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const DATA = [
   {
@@ -169,6 +169,13 @@ const App = () => {
     }
   };
 
+  const [toggleSide, setToggleSide] = useState(true);
+
+  const handleBtnSideContainer = () => {
+    setToggleSide(!toggleSide);
+    console.log(toggleSide);
+  };
+  useEffect(() => {}, [toggleSide]);
   return (
     <div className="layout__wrapper">
       <DragDropContext onDragEnd={handleDragDrop}>
@@ -290,8 +297,19 @@ const App = () => {
             </Droppable>
           </div>
         </div>
-        <div className="sideContainer">
+        <div className={toggleSide === false ? 'collapsed' : 'sideContainer'}>
+          <button className="btnSide" onClick={() => handleBtnSideContainer()}>
+            <img
+              src={
+                toggleSide === false
+                  ? 'https://res.cloudinary.com/do7bnejaz/image/upload/v1690115618/Icons/izquierda_tunxmp.png'
+                  : 'https://res.cloudinary.com/do7bnejaz/image/upload/v1690115615/Icons/derecha_hokv6f.png'
+              }
+              alt="arrow"
+            />
+          </button>
           <h4 className="sideTitle">Elements</h4>
+
           <Droppable droppableId="sideContainer">
             {(provided) => (
               <div
