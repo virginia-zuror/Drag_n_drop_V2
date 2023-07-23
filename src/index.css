@@ -37,7 +37,7 @@ body {
 button{
   border: none;
   background-color:white;
-  color:var(--secondary-color);
+  color: inherit;
   font-size: large;
   cursor: pointer;
 }
