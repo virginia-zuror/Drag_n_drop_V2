@@ -171,6 +171,39 @@ const App = () => {
         return updatedItems;
       });
     }
+
+    //Delete Item
+
+    if (
+      source.droppableId !== 'sideContainer' &&
+      destination.droppableId === 'deleteDrop'
+    ) {
+      const draggedItem = source.index;
+      if (source.droppableId === 'header') {
+        setHeaderItems((prevItems) => {
+          const updatedItems = [...prevItems];
+          updatedItems.splice(draggedItem, 1);
+
+          return updatedItems;
+        });
+      }
+      if (source.droppableId === 'bodyBox') {
+        setBodyBoxItems((prevItems) => {
+          const updatedItems = [...prevItems];
+          updatedItems.splice(draggedItem, 1);
+
+          return updatedItems;
+        });
+      }
+      if (source.droppableId === 'footer') {
+        setFooterItems((prevItems) => {
+          const updatedItems = [...prevItems];
+          updatedItems.splice(draggedItem, 1);
+
+          return updatedItems;
+        });
+      }
+    }
   };
 
   const handleBtnSideContainer = () => {
@@ -312,44 +345,67 @@ const App = () => {
             />
           </button>
           <h4 className="sideTitle">Elements</h4>
-
-          <Droppable droppableId="sideContainer">
-            {(provided) => (
-              <div
-                ref={provided.innerRef}
-                className="itemsList"
-                {...provided.droppableProps}
-              >
-                {items.map((item, index) => (
-                  <Draggable key={item.id} draggableId={item.name} index={index}>
-                    {(provided, snapshot) => (
-                      <div
-                        {...provided.draggableProps}
-                        ref={provided.innerRef}
-                        style={{
-                          boxShadow: snapshot.isDragging && 'none',
-                          color: snapshot.isDragging && '#1E4054',
-                          border: snapshot.isDragging && '1px #C2C2C2 solid',
-                          ...provided.draggableProps.style,
-                        }}
-                        {...provided.dragHandleProps}
-                        className="itemSideContainer"
-                      >
-                        <img
-                          className="icon"
-                          src={item.icon}
-                          alt={item.name}
-                          style={{ filter: snapshot.isDragging && 'brightness(50%)' }}
-                        />
-                        {item.name}
-                      </div>
-                    )}
-                  </Draggable>
-                ))}
-                {provided.placeholder}
-              </div>
-            )}
-          </Droppable>
+          <>
+            <Droppable droppableId="sideContainer">
+              {(provided, snapshot) => (
+                <div
+                  style={{ display: snapshot.isDraggingOver && 'none' }}
+                  ref={provided.innerRef}
+                  className="itemsList"
+                  {...provided.droppableProps}
+                >
+                  {items.map((item, index) => (
+                    <Draggable key={item.id} draggableId={item.name} index={index}>
+                      {(provided, snapshot) => (
+                        <div
+                          {...provided.draggableProps}
+                          ref={provided.innerRef}
+                          style={{
+                            boxShadow: snapshot.isDragging && 'none',
+                            color: snapshot.isDragging && '#1E4054',
+                            border: snapshot.isDragging && '1px #C2C2C2 solid',
+                            ...provided.draggableProps.style,
+                          }}
+                          {...provided.dragHandleProps}
+                          className="itemSideContainer"
+                        >
+                          <img
+                            className="icon"
+                            src={item.icon}
+                            alt={item.name}
+                            style={{ filter: snapshot.isDragging && 'brightness(50%)' }}
+                          />
+                          {item.name}
+                        </div>
+                      )}
+                    </Draggable>
+                  ))}
+                  {provided.placeholder}
+                </div>
+              )}
+            </Droppable>
+          </>
+          <>
+            <Droppable droppableId="deleteDrop">
+              {(provided, snapshot) => (
+                <div
+                  ref={provided.innerRef}
+                  className="trashDrop"
+                  {...provided.droppableProps}
+                >
+                  <div>
+                    <img
+                      style={{ filter: snapshot.isDraggingOver && 'opacity(0%)' }}
+                      className="icon"
+                      src="https://res.cloudinary.com/do7bnejaz/image/upload/v1690143344/Icons/trash_apk9zj.png"
+                      alt="Trash"
+                    />
+                  </div>
+                  {provided.placeholder}
+                </div>
+              )}
+            </Droppable>
+          </>
         </div>
       </DragDropContext>
     </div>
