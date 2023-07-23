@@ -91,14 +91,58 @@ height: 50px;
 
 .sideContainer{
   min-width: 460px;
-  height: 982px;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   padding: 32px;
   border: 0px 0px 0px 1px;
   gap: 40px;
   background-color: var(--secondary-color);
-  border-left: 1px solid #E9E9E9
+  border-left: 1px solid #E9E9E9;
+}
+
+.collapsed{
+  width: 80px;
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--secondary-color);
+  border-left: 1px solid #E9E9E9;
+  border: 0px 0px 0px 1px;
+  position: fixed;
+  right: 0;
+  padding: 32px;
+ }
+ .btnSide{
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 5px 0.5px #C2C2C2;
+ }
+ 
+ .collapsed .btnSide{
+  position: relative;
+  right: 12.5px;
+ }
+
+ .sideContainer .btnSide{
+  position: relative;
+  left:0;
+}
+
+.btnSide:hover{
+  transition: box-shadow 0.3s ease-in-out ;
+  box-shadow: none;
+
+}
+.btnSide > img{
+  width: 75%;  
+}
+.collapsed .sideTitle, .collapsed .itemsList{
+  display: none;
 }
 
 .sideContainer > .itemsList{
@@ -137,6 +181,7 @@ text-align: left;
 
 .itemSideContainer:hover{
   box-shadow: none;
+  transition: box-shadow 0.3s ease-in-out ;
 }
 
 .itemSideContainer:focus{
