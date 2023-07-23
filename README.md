@@ -1,4 +1,4 @@
-# Technical Assessment // Drag and Drop
+# Technical Assessment_V2 // Drag and Drop
 
 ## Task
 
