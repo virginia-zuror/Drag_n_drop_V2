@@ -173,9 +173,10 @@ const App = () => {
 
   const handleBtnSideContainer = () => {
     setToggleSide(!toggleSide);
-    console.log(toggleSide);
   };
+
   useEffect(() => {}, [toggleSide]);
+
   return (
     <div className="layout__wrapper">
       <DragDropContext onDragEnd={handleDragDrop}>
