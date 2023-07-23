@@ -7,7 +7,9 @@
     • Elements within an area can be rearranged.
     • Elements can be reordered between the Header and Body areas but moving a Text element from the Body to the Footer or moving a Text from the Footer to the Body is        not permitted.
     • There is no limit to the number of elements that areas can hold.
- 
+
+  
+ - [**Deployed on Vercel**](https://drag-n-drop-v2.vercel.app/)
     
 ### Vite+React
 Project created with Vite and React
