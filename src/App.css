@@ -22,7 +22,69 @@ border: 0px 0px 0px 1px;
   margin-right: 0.5rem;
 }
 
+@media only screen and (max-width:900px) {
+  .layout__wrapper{
+    display: flex;
+    flex-direction: column;
+  
+  }
+  .dashboard{
+    width: 100vw;
+    position: absolute;
+    top: 12rem;
+    padding: 1rem;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+  }
+  .layout__wrapper> .sideContainer{
+    position: relative;
+    bottom: 100%;  
+    left: 0;
+    top: 0;
+    right: 100%;
+    padding: 1rem 0 1rem 1rem;
+    gap: 3rem;
+    border: none;
+    display: flex;
+   max-height: 25vh;
+   width: 100vw;
+   
+   margin: 0;
+   
+  }
+  .sideTitle{
+    width: fit-content;
+  }
 
+  .sideContainer > .itemsList{
+    flex-direction: row;
+    max-width:fit-content;
+    gap: 1rem;
+    position: relative;
+    top: -2rem;
+    align-items: center;
+    justify-content: center;
+justify-self: center;
+align-self: center;
+  }
+  .layout__wrapper> .sideContainer> .itemsList> .itemSideContainer{
+    width: 90px;
+    height: 90px;
+
+  }
+.layout__wrapper> .sideContainer> .itemsList> .itemSideContainer>.icon{
+  width: 35px;
+  height: 35px;
+}
+  .sideContainer >.btnSide{
+    display: none;
+  }
+
+  .header, .bodyBox, .footer{
+    width: 90vw;
+  }
+}
 /*scrollbar*/
 /* width */
 ::-webkit-scrollbar {
@@ -69,9 +131,10 @@ border: 0px 0px 0px 1px;
   display: flex;
   flex-direction: column;
   gap: 1rem; 
-  min-width: 50.875rem;
+  max-width: 100%;
   padding:64px, 32px, 64px, 32px;
 }
+
 
 .itemFooter, .itemHeader, .itemBodyBox{
   width: 100%;
@@ -83,6 +146,8 @@ border: 0px 0px 0px 1px;
   justify-content: center;
   z-index: 5;
 }
+
+
 
 .itemFooter> .itemInUse{
   width: 50px;

@@ -7,6 +7,7 @@ const DATA = [
     name: 'Text',
     id: 0,
     icon: 'https://res.cloudinary.com/do7bnejaz/image/upload/v1690015392/Icons/text_xfvuub.png',
+    active: false,
   },
   {
     name: 'Image',
