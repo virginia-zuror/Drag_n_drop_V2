@@ -10,6 +10,15 @@
 
   
  - [**Deployed on Vercel**](https://drag-n-drop-v2.vercel.app/)
+### Improvements
+- Collapsible menu
+- Capacity to delete elements from containers
+- Responsive
+
+![v2_start_normal](https://github.com/virginia-zuror/Drag_n_drop_V2/assets/115217653/5a334f14-89a0-4f48-a362-9991dea2c739)
+![v2_start_collapsed](https://github.com/virginia-zuror/Drag_n_drop_V2/assets/115217653/34125802-45f1-473e-8501-d48bf2d26242)
+![v2_ending_normal](https://github.com/virginia-zuror/Drag_n_drop_V2/assets/115217653/8a6dab92-687f-4a1a-9b10-fa52e66c1f8b)
+
     
 ### Vite+React
 Project created with Vite and React
